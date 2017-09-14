@@ -55,6 +55,9 @@ class Graph (object):
         return self.name + " of size: " + str(self.size) + " with Nodes: " + string
 
     def fromCSV(self, pathToNodes, pathToEdges):
+        """
+        Alias: "JavaIn2017LULMermesSeLaCome"
+        """
         import pandas as pd
         csvNodes = pd.read_csv(pathToNodes)
         for i, row in csvNodes.iterrows():
