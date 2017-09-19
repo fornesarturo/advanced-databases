@@ -6,6 +6,7 @@ class Node(object):
         self.id = id
         self.name = name
         self.adj = {}
+        self.level = 0
 
     def addConnection(self, node, cost):
         self.adj[node.id] = [cost, node]
@@ -36,16 +37,16 @@ class Graph (object):
         Q = []
         result.append(startNode)
         Q.append(startNode)
-        level = 0
-        resultString.append(str(level) + " " + startNode.name)
+        startNode.level = 0
+        resultString.append(str(startNode.level) + " " + startNode.name)
         while Q:
             current = Q.pop(0)
-            level += 1
             for i in current.adj.values():
                 if i[1] not in result:
+                    i[1].level = current.level + 1
                     result.append(i[1])
                     Q.append(i[1])
-                    resultString.append(str(level) + " " + i[1].name)
+                    resultString.append(str(i[1].level) + " " + i[1].name)
         return result, resultString
 
     def toString(self):
