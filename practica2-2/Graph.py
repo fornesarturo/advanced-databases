@@ -49,6 +49,24 @@ class Graph (object):
                     resultString.append(str(i[1].level) + " " + i[1].name)
         return result, resultString
 
+    def depthFirstSearch(self, startId):
+        startNode = self.nodes[startId]
+        result = []
+        resultString = []
+        S = []
+        S.append(startNode)
+        startNode.level = 0
+        while S:
+            current = S.pop()
+            if(current not in result):
+                result.append(current)
+                resultString.append(str(current.level) + " " + current.name)
+            for i in current.adj.values():
+                if i[1] not in result:
+                    i[1].level = current.level + 1
+                    S.append(i[1])
+        return result, resultString
+
     def toString(self):
         string = ""
         for i in self.nodes.values():
