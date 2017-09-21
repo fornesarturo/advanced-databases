@@ -31,7 +31,6 @@ def create_hist(filename, dictionary):
     keyValue = zip(hist.keys(), hist.values())
     return dict(sorted(keyValue, key = lambda x: x[1], reverse=True))
 
-
 dictionary = fromJson()
 
 filename = "file.txt"# input("¿Dónde está el archivo?: ")
