@@ -20,7 +20,7 @@ if __name__ == '__main__':
         print(tab + i)
 
     print("\n================================================================\n\t\t\t== PageRank of the Graph ==\n================================================================\n")
-    pageRank = myGraph.pageRank(2)
+    pageRank = myGraph.pageRank(50)
     for key, value in zip(pageRank.keys(), pageRank.values()):
         print(key + "\t\t\t\t\t" + str(value))
 
